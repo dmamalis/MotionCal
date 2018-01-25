@@ -340,7 +340,7 @@ static int ascii_parse(const unsigned char *data, int len)
 	}
 	return ret;
 fail:
-	//printf("ascii FAIL\n");
+	printf("ascii FAIL\n");
 	ascii_state = ASCII_STATE_WORD;
 	ascii_raw_data_count = 0;
 	ascii_num = 0;

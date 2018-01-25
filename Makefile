@@ -8,7 +8,8 @@ ALL = MotionCal imuread
 CC = gcc
 CXX = g++
 CFLAGS = -O2 -Wall -D$(OS)
-WXCONFIG = ~/wxwidgets/3.0.2.gtk2-opengl/bin/wx-config
+#WXCONFIG = ~/wxwidgets/3.0.2.gtk2-opengl/bin/wx-config
+WXCONFIG = /usr/bin/wx-config
 WXFLAGS = `$(WXCONFIG) --cppflags`
 CXXFLAGS = $(CFLAGS) `$(WXCONFIG) --cppflags`
 LDFLAGS =
@@ -65,7 +66,7 @@ OBJS = visualize.o serialdata.o rawdata.o magcal.o matrix.o fusion.o quality.o m
 all: $(ALL)
 
 MotionCal: gui.o portlist.o $(OBJS)
-	$(CXX) $(SFLAG) $(CFLAGS) $(LDFLAGS) -o $@ $^ `$(WXCONFIG) --libs all,opengl`
+	$(CXX) $(SFLAG) $(CFLAGS) $(LDFLAGS) -o $@ $^ `$(WXCONFIG) --libs all,opengl` $(CLILIBS)
 
 MotionCal.exe: resource.o gui.o portlist.o $(OBJS)
 	$(CXX) $(SFLAG) $(CFLAGS) $(LDFLAGS) -o $@ $^ `$(WXCONFIG) --libs all,opengl`
